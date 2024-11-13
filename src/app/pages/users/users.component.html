@@ -1,1 +1,5 @@
-<p>users works!</p>
+<ul class="list-button">
+    <li class="mb-2">
+        <button class="btn btn-success" *ngFor="let user of users" [routerLink]="['/user/' + user]" routerLinkActive="router-link-active" >{{user}}</button>
+    </li>
+</ul>
