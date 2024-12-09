@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -9,6 +8,8 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { BaseUIComponent } from './_components/base-ui/base-ui.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
+import { UserCardComponent } from './_components/user-card/user-card.component';
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -18,13 +19,16 @@ import { UserComponent } from './pages/user/user.component';
     FooterComponent,
     BaseUIComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule, // Já incluído
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Para suportar Web Components, se necessário
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
