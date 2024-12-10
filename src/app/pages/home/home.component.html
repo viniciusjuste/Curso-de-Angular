@@ -1,5 +1,28 @@
-<div class="mt-3 border col-md p-3" *ngIf="user">
-    <h2>Informações do usuário selecionado:</h2>
-    <p>Nome: {{ user?.nome }}</p>
-    <p>Idade: {{ user?.idade }}</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <img [src]="user?.avatar_url" alt="avatar user" class="card-image-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{user?.name}}</h5>
+          <p class="card-text">{{'@' + user?.login}}</p>
+          <div class="row text-center">
+            <div class="col-md">
+              <div>
+                <p class="m-0"><b>Seguidores</b></p>
+                <p class="card-text">{{user?.followers}}</p>
+              </div>
+            </div>
+            <div class="col-md">
+              <div>
+                <p class="m-0"><b>Seguindo</b></p>
+                <p class="card-text">{{user?.following}}</p>
+              </div>
+            </div>
+          </div>
+          <a [href]="user?.html_url" target="_blank" class="btn btn-primary mt-3">Visitar Perfl</a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
