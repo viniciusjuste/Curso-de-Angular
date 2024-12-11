@@ -11,6 +11,11 @@ import { UserComponent } from './pages/user/user.component';
 import { UserCardComponent } from './_components/user-card/user-card.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, // Já incluído
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Para suportar Web Components, se necessário
   providers: [],
