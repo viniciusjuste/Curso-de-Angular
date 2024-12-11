@@ -10,11 +10,13 @@ import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserCardComponent } from './_components/user-card/user-card.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';  
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { CommonModule } from '@angular/common';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 
 @NgModule({
@@ -36,10 +38,13 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     BrowserAnimationsModule,
     CommonModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Para suportar Web Components, se necessário
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
